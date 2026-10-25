@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elektro-Profi – dein Lernguide zu Strom</title>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#fbfbf6;--grid:#d3e3f2;--ink:#1b2f7a;--hi:#ffe14a;--red:#d6342c;--grn:#188a4a;--tx:#1c1f2a;--mu:#5b6275;--okb:#dff3e6;--nob:#fde2df;--sel:#e6ecff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#171b29;--grid:#242c45;--ink:#9db7ff;--tx:#eceff8;--mu:#a0a7bd;--okb:#173826;--nob:#43211f;--sel:#26304f;--red:#ff7b72;--grn:#4fd48a}}
+:root[data-theme="dark"]{--paper:#171b29;--grid:#242c45;--ink:#9db7ff;--tx:#eceff8;--mu:#a0a7bd;--okb:#173826;--nob:#43211f;--sel:#26304f;--red:#ff7b72;--grn:#4fd48a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;color:var(--tx);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px}
+main{max-width:640px;margin:0 auto;padding:14px}
+h1,h2,h3,.big,nav button,.btn,.r>b{font-family:"Patrick Hand","Segoe Print","Bradley Hand",cursive;font-weight:400;color:var(--ink)}
+h1{font-size:34px;margin:4px 0}h2{font-size:27px;margin:14px 0 6px}h3{font-size:22px;margin:4px 0 8px}
+p{margin:6px 0}small{color:var(--mu)}
+mark{background:var(--hi);color:#1c1f2a;padding:0 3px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.stars{background:var(--hi);color:#1c1f2a;border:2px solid var(--ink);border-radius:99px;padding:2px 12px;font-weight:700;white-space:nowrap}
+nav{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:12px}
+nav button{font-size:16px;line-height:1.2;padding:8px 2px;border:2px solid var(--ink);border-bottom:0;border-radius:10px 10px 0 0;background:var(--paper);cursor:pointer}
+nav button.on{background:var(--hi);color:#1c1f2a}
+.unit{border-top:2px solid var(--ink);padding-top:2px}.unit[hidden]{display:none}
+.card{background:var(--paper);border:2px solid var(--ink);border-radius:6px;padding:12px 16px;margin:12px 0}
+.g{display:grid;gap:0 12px}@media(min-width:560px){.g{grid-template-columns:1fr 1fr}}
+.big{font-size:38px;line-height:1}
+.r{display:grid;grid-template-columns:2em 1fr;gap:0 8px;padding:8px 0;border-top:1px dashed var(--grid)}.r:first-of-type{border:0}
+.r>b{font-size:30px;line-height:1.1}
+button{touch-action:manipulation}button:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.opt,.mb,.seg button{display:block;width:100%;min-height:46px;margin:8px 0;padding:10px 14px;font:inherit;text-align:left;color:var(--tx);background:var(--paper);border:2px solid var(--ink);border-radius:10px;cursor:pointer}
+.mb{font-size:15px;margin:0 0 8px}.mb.sel{background:var(--sel)}
+.ok{background:var(--okb)!important;border-color:var(--grn)!important}.no{background:var(--nob)!important;border-color:var(--red)!important}
+.seg{display:flex;gap:8px}.seg button{text-align:center;margin:6px 0}.seg button.on{background:var(--hi);color:#1c1f2a}
+.mt{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{font-size:20px;color:var(--paper);background:var(--ink);border:0;border-radius:10px;padding:8px 18px;cursor:pointer;margin-top:8px}
+.fb{min-height:1.6em;font-weight:600}
+.end{text-align:center}label{display:block;margin:10px 0}input[type=range]{width:100%;accent-color:var(--ink)}
+.lt{width:100%;border-collapse:collapse;font-size:15px;margin-top:8px}.lt td,.lt th{border:1px solid var(--grid);padding:4px 6px;text-align:center}.lt tr.cur{background:var(--hi);color:#1c1f2a}
+.lamps{display:flex;gap:6px;justify-content:center;margin:8px 0}.lamps button{font-size:30px;line-height:1;padding:6px;background:none;border:2px solid var(--grid);border-radius:10px;cursor:pointer;min-width:48px;min-height:52px}
+.bar{height:22px;background:var(--grid);border-radius:11px;overflow:hidden}.bar i{display:block;height:100%;background:#2d8cf0;width:3%;transition:width .3s}@media(prefers-reduced-motion:reduce){.bar i{transition:none}}
+svg{width:100%;height:auto;display:block}.k{stroke:var(--tx);fill:none;stroke-width:3}.tt{fill:var(--tx);font:18px "Patrick Hand",sans-serif}
+</style></head><body><main>
+<div class="top"><h1>Elektro-Profi</h1><span class="stars" id="st">⭐ 0</span></div>
+<p>Dein Lernguide zu Strom. Lies die Lerneinheit, dann teste dich. Für jede richtige Antwort gibt es einen Stern.</p>
+<nav>
+<button data-u="u1">🔄<br>Wandler</button><button data-u="u2">🚪<br>Und/Oder</button><button data-u="u3">⚡<br>Größen</button><button data-u="u4">🏆<br>Test</button>
+</nav>
+
+<section class="unit" id="u1">
+<h2>Strom verwandelt Energie</h2>
+<div class="card"><p>Stell dir vor, der Strom ist ein <mark>Lieferwagen</mark>. Er bringt Energie durch den Draht zu deinem Gerät. Im Gerät wird sie ausgepackt und in etwas Neues <mark>verwandelt</mark>: Licht, Wärme, Bewegung oder Chemie. Darum heißen Elektrogeräte <mark>Energiewandler</mark>.</p></div>
+<div class="g">
+<div class="card"><div class="big">💡</div><h3>Licht</h3><p>Der Strom macht es hell.</p><small>Taschenlampe, Glühlampe, Halogenlampe, Leuchtstoffröhre, LED. In der Natur: der Blitz.</small></div>
+<div class="card"><div class="big">🔥</div><h3>Wärme</h3><p>Der Strom macht es heiß, wie warme Hände, wenn du sie aneinander reibst.</p><small>Elektroherd, Kaffeemaschine, Heizdecke, Toaster, Wasserkocher, Bügeleisen, Sitzheizung, Föhn, elektrischer Ofen.</small></div>
+<div class="card"><div class="big">🧲</div><h3>Magnet und Bewegung</h3><p>Strom macht einen Magneten (Elektromagnet). Der zieht und schiebt, und schon bewegt sich etwas. Das heißt <mark>mechanische Energie</mark>.</p><small>Elektromagnet, Lautsprecher, MRT, Lasthebemagnet, Mixer, Kopfhörer, elektrische Türklingel.</small></div>
+<div class="card"><div class="big">🧪</div><h3>Chemie</h3><p>Strom baut Stoffe auseinander oder zusammen, wie Legosteine. So wird Wasser in Wasserstoff und Sauerstoff zerlegt. Beim Akku-Laden wird Energie in Stoffen gespeichert.</p><small>Elektrolyse, Vergolden, Akku laden, Aluminium-Gewinnung, Verchromen, Wasserstoff-Herstellung.</small></div>
+</div>
+<div class="card"><p>Viele Geräte machen <mark>mehrere Dinge gleichzeitig</mark>. Eine Glühlampe leuchtet und wird heiß: Licht und Wärme.</p></div>
+<div class="card"><h3>Merkhilfe</h3><p>Es <mark>leuchtet</mark>: Licht. Es wird <mark>heiß</mark>: Wärme. Es <mark>bewegt sich</mark> oder brummt: Magnet und Bewegung. Es <mark>speichert oder verändert Stoffe</mark>: Chemie.</p></div>
+<div class="card"><h3>Geräte-Detektiv</h3><p>Tippe ein Gerät an. Was verwandelt es?</p><div class="seg" id="dt" style="flex-wrap:wrap"></div><p class="fb" id="dr" aria-live="polite"></p></div>
+<h2>Sortier-Spiel</h2><div class="card" id="sg"></div>
+<h2>Teste dich!</h2><div id="q1"></div>
+</section>
+
+<section class="unit" id="u2" hidden>
+<h2>Und oder Oder?</h2>
+<div class="card"><h3>Reihenschaltung: die Und-Schaltung</h3><p>Zwei Türen stehen <mark>hintereinander</mark> im Flur. Du kommst nur von A nach B, wenn Tür 1 <b>und</b> Tür 2 offen sind. So ist es auch beim Strom: Er fließt nur, wenn Schalter 1 <b>und</b> Schalter 2 geschlossen sind.</p></div>
+<div class="card"><h3>Parallelschaltung: die Oder-Schaltung</h3><p>Zwei Türen stehen <mark>nebeneinander</mark>. Du kommst von A nach B, wenn Tür 1 <b>oder</b> Tür 2 offen ist. Eine reicht! Der Strom fließt, wenn Schalter 1 <b>oder</b> Schalter 2 geschlossen ist.</p></div>
+<div class="card"><p>Merke: Ein <mark>geschlossener</mark> Schalter lässt den Strom durch. Ein <mark>offener</mark> Schalter ist eine Lücke, da kommt der Strom nicht weiter.</p></div>
+<div class="card"><h3>Beispiele aus dem Alltag</h3><p><b>Reihe (und):</b> Eine Maschine startet nur, wenn du <i>beide</i> Knöpfe drückst. Eine alte Lichterkette: Alle Lampen hängen hintereinander.</p><p><b>Parallel (oder):</b> Die Haustür hat einen Klingelknopf vorne <i>oder</i> hinten. Im Auto geht das Innenlicht an, wenn <i>irgendeine</i> Tür offen ist.</p></div>
+<div class="card"><h3>Probier es selbst aus!</h3><p>Tippe auf die Schalter und schau, wann die Lampe leuchtet.</p>
+<div class="seg"><button id="mr">Reihe (und)</button><button id="mp">Parallel (oder)</button></div>
+<svg id="sv" viewBox="0 0 320 195" role="img" aria-label="Stromkreis mit Batterie, Lampe und zwei Schaltern"></svg>
+<div class="seg"><button id="b1"></button><button id="b2"></button></div>
+<p class="fb" id="sr" aria-live="polite"></p>
+<table class="lt" id="lt"><tr><th>Schalter 1</th><th>Schalter 2</th><th>Reihe</th><th>Parallel</th></tr><tr><td>offen</td><td>offen</td><td>🌑</td><td>🌑</td></tr><tr><td>offen</td><td>zu</td><td>🌑</td><td>💡</td></tr><tr><td>zu</td><td>offen</td><td>🌑</td><td>💡</td></tr><tr><td>zu</td><td>zu</td><td>💡</td><td>💡</td></tr></table><small>Die gelbe Zeile zeigt, was du gerade eingestellt hast.</small></div>
+<div class="card"><h3>Die Lichterkette: Eine Lampe geht kaputt</h3><div class="seg"><button id="lr">Reihe</button><button id="lp">Parallel</button></div><div class="lamps" id="lamps"></div><p class="fb" id="lm" aria-live="polite"></p></div>
+<h2>Teste dich!</h2><div id="q2"></div>
+</section>
+
+<section class="unit" id="u3" hidden>
+<h2>Die Strom-Familie</h2>
+<div class="card"><p>Strom ist wie <mark>Wasser in einem Rohr</mark>. Damit verstehst du alle Wörter. Jede Größe hat ein <mark>Formelzeichen</mark> (ein Buchstabe) und eine <mark>Einheit</mark>.</p></div>
+<div class="card">
+<div class="r"><b>s</b><span><b style="font:inherit;color:inherit">Strecke</b>: m, cm, dm, km, Lichtjahr<br>Wie weit etwas weg ist. Ein Lichtjahr ist so weit, wie Licht in einem Jahr fliegt.</span></div>
+<div class="r"><b>Q</b><span><b style="font:inherit;color:inherit">Ladung</b>: Coulomb (C)<br>Pakete voller winziger Elektronen, wie das Wasser im Eimer.</span></div>
+<div class="r"><b>I</b><span><b style="font:inherit;color:inherit">Strom</b>: Ampere (A)<br>Wie viel Wasser in einer Sekunde durchs Rohr fließt.</span></div>
+<div class="r"><b>U</b><span><b style="font:inherit;color:inherit">Spannung</b>: Volt (V)<br>Der Druck der Pumpe. Mehr Druck schiebt den Strom stärker.</span></div>
+<div class="r"><b>R</b><span><b style="font:inherit;color:inherit">Widerstand</b>: Ohm (Ω)<br>Eine enge Stelle im Rohr. Sie bremst den Strom.</span></div>
+<div class="r"><b>P</b><span><b style="font:inherit;color:inherit">Leistung</b>: Watt (W)<br>Wie stark ein Gerät arbeitet. Ein Föhn hat viele Watt, eine kleine Lampe wenig.</span></div>
+<div class="r"><b>E</b><span><b style="font:inherit;color:inherit">Energie</b>: Joule (J)<br>Wie viel Kraft-Vorrat verbraucht wird.</span></div>
+</div>
+<div class="card"><h3>Wie groß ist 1 Coulomb?</h3><p>Ein Ladungs-Paket = 1 Coulomb = <mark>6,25 Trillionen Elektronen</mark> (6,25 × 10¹⁸). Wenn du jede Sekunde ein Elektron zählst, brauchst du fast 200 Milliarden Jahre. Das Universum ist erst knapp 14 Milliarden Jahre alt!</p></div>
+<div class="card"><h3>Streckenrechner</h3><p>1 m = 10 dm = 100 cm. 1 km = 1000 m. Ein Lichtjahr ist eine <mark>Strecke</mark>, keine Zeit: So weit fliegt Licht in einem Jahr (etwa 9,5 Billionen km).</p></div>
+<div class="card"><h3>Zahlen aus deinem Alltag</h3><p>🔋 Batterie: ca. 1,5 V<br>🔌 Steckdose: 230 V (gefährlich, nie anfassen!)<br>💡 LED-Lampe: ca. 8 W<br>💨 Föhn: ca. 2000 W</p></div>
+<div class="card"><h3>Wasserrohr-Labor</h3><p>Stell die Pumpe und die enge Stelle ein. Wie viel Strom fließt?</p><label>Spannung (Pumpe): <b id="uv">6</b> V<input type="range" id="us" min="1" max="12" value="6"></label><label>Widerstand (enge Stelle): <b id="rv">3</b> Ω<input type="range" id="rs" min="1" max="12" value="3"></label><div class="bar"><i id="ib"></i></div><p class="fb" id="il" aria-live="polite"></p><small>Bonus: I = U ÷ R (Strom = Spannung geteilt durch Widerstand).</small></div>
+<h2>Finde die Paare</h2><div class="card"><h3>Größe und Zeichen</h3><div id="m"></div><button class="btn" id="mn">Neu mischen</button></div>
+<div class="card"><h3>Größe und Wasser-Bild</h3><div id="m2"></div><button class="btn" id="mn2">Neu mischen</button></div>
+<h2>Teste dich!</h2><div id="q3"></div>
+</section>
+
+<section class="unit" id="u4" hidden>
+<h2>Abschluss-Test</h2>
+<div class="card"><h3>Spickzettel</h3><p><mark>Wandler:</mark> Licht 💡, Wärme 🔥, Magnet und Bewegung 🧲, Chemie 🧪.<br><mark>Reihe</mark> = und, hintereinander. <mark>Parallel</mark> = oder, nebeneinander.<br>s Meter · Q Coulomb · I Ampere · U Volt · R Ohm · P Watt · E Joule</p></div>
+<p>Wie lang soll dein Test sein? Die Fragen werden jedes Mal neu gemischt.</p><div class="seg"><button id="t10">Kurz (10)</button><button id="t20">Lang (20)</button></div><div id="q4"></div>
+</section>
+</main>
+<script>
+const $=s=>document.querySelector(s),sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+let stars=0;const star=()=>{stars++;$('#st').textContent='⭐ '+stars};
+function quiz(id,src){
+ const el=$('#'+id);let qs,i,sc;
+ function start(){qs=typeof src=='function'?src():sh(src);i=0;sc=0;show()}
+ function show(){
+  if(i>=qs.length){const p=sc/qs.length;
+   el.innerHTML=`<div class="card end"><div class="big">${p==1?'🏆':p>=.6?'🎉':'💪'}</div><h3>${sc} von ${qs.length} gleich beim ersten Versuch richtig!</h3><p>${p==1?'Wow, perfekt! Du bist ein Elektro-Profi.':p>=.6?'Richtig gut! Lies bei den Fehlern nochmal nach.':'Kein Problem. Lies die Lerneinheit nochmal und versuch es wieder.'}</p><button class="btn">Nochmal spielen</button></div>`;
+   el.querySelector('.btn').onclick=start;return}
+  const q=qs[i],o=sh(q.o.map((t,k)=>[t,k]));
+  el.innerHTML=`<div class="card"><small>Frage ${i+1} von ${qs.length}</small><h3>${q.q}</h3>${o.map(([t,k])=>`<button class="opt" data-k="${k}">${t}</button>`).join('')}<p class="fb" aria-live="polite"></p></div>`;
+  const fb=el.querySelector('.fb');let done=0,tries=0;
+  el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+   if(done)return;
+   if(b.dataset.k==='0'){done=1;b.classList.add('ok');if(!tries){sc++;star()}
+    fb.innerHTML='✅ Richtig! '+(q.t||'')+'<br><button class="btn">Weiter</button>';
+    fb.querySelector('.btn').onclick=()=>{i++;show()}}
+   else{tries++;b.classList.add('no');b.disabled=true;fb.textContent='Fast! Probier es nochmal.'}
+  });
+ }
+ start();
+}
+const L=['💡 Licht','🔥 Wärme','🧲 Magnet und Bewegung','🧪 Chemie'];
+const dev=(n,k,t)=>({q:`Was macht der Strom ${n}?`,o:[L[k],...L.filter((_,j)=>j!=k)],t});
+const Q1=[
+{q:'Elektrogeräte verwandeln Energie. Wie nennt man sie deshalb?',o:['Energiewandler','Energiesparer','Spannungsgeber','Stromfresser'],t:'Sie wandeln elektrische Energie in andere Energie um.'},
+dev('in einer Taschenlampe',0,'Strom wird zu Licht.'),
+dev('in einem Toaster',1,'Die Drähte werden heiß.'),
+dev('in einem Lautsprecher',2,'Ein Elektromagnet lässt die Membran wackeln.'),
+dev('beim Akku-Laden',3,'Energie wird in Stoffen gespeichert.'),
+dev('in einem Bügeleisen',1,'Das Eisen wird heiß.'),
+dev('in einer LED',0,'Eine LED ist eine Leuchtdiode.'),
+dev('beim Vergolden',3,'Strom setzt Gold-Teilchen auf den Gegenstand.'),
+dev('in einem Mixer',2,'Magnetkraft dreht den Motor.'),
+{q:'Ein Toaster wird heiß und glüht orange. Welche zwei Wirkungen sind das?',o:['Wärme und Licht','Licht und Chemie','Chemie und Bewegung','Nur Bewegung'],t:'Viele Geräte nutzen mehrere Wirkungen gleichzeitig.'},
+dev('in einer Kaffeemaschine',1,'Das Wasser wird erhitzt.'),dev('in Kopfhörern',2,'Ein winziger Magnet bewegt die Membran.'),dev('bei der Aluminium-Gewinnung',3,'Strom trennt das Aluminium vom Rest.'),dev('in einer Türklingel',2,'Ein Elektromagnet schlägt an die Klingel.'),dev('in einer Heizdecke',1,'Dünne Heizdrähte wärmen dich.'),
+{q:'Wahr oder falsch? Ein Elektromagnet wirkt nur, wenn Strom fließt.',o:['Wahr','Falsch'],t:'Ohne Strom ist er kein Magnet.'}];
+const Q2=[
+{q:'Der Strom fließt nur, wenn Schalter 1 <b>und</b> Schalter 2 geschlossen sind. Welche Schaltung ist das?',o:['Reihenschaltung','Parallelschaltung','Keine von beiden','Beide'],t:'Reihe ist die Und-Schaltung.'},
+{q:'Zwei Türen stehen hintereinander im Flur. Du musst durch beide. Welche Schaltung passt?',o:['Reihenschaltung','Parallelschaltung','Magnetschaltung','Lichtschaltung'],t:'Hintereinander heißt Reihe.'},
+{q:'Zwei Türen stehen nebeneinander. Du darfst eine aussuchen. Welche Schaltung passt?',o:['Parallelschaltung','Reihenschaltung','Magnetschaltung','Lichtschaltung'],t:'Nebeneinander heißt parallel.'},
+{q:'Reihenschaltung: Schalter 1 ist zu, Schalter 2 ist offen. Was macht die Lampe?',o:['Sie bleibt aus.','Sie leuchtet.','Sie leuchtet halb.','Sie geht kaputt.'],t:'Ein offener Schalter ist eine Lücke.'},
+{q:'Parallelschaltung: Schalter 1 ist offen, Schalter 2 ist zu. Was macht die Lampe?',o:['Sie leuchtet.','Sie bleibt aus.','Sie blinkt.','Sie geht kaputt.'],t:'Bei Oder reicht ein geschlossener Schalter.'},
+{q:'Wie nennt man die Parallelschaltung noch?',o:['Oder-Schaltung','Und-Schaltung','Aus-Schaltung','Dreh-Schaltung'],t:'Tür 1 oder Tür 2.'},
+{q:'Ein Schalter ist <b>geschlossen</b>. Was bedeutet das?',o:['Der Strom darf durch.','Der Strom ist gestoppt.','Die Lampe ist kaputt.','Der Schalter ist kaputt.'],t:'Geschlossen heißt: Der Weg ist frei.'},
+{q:'Bei einer alten Lichterkette gehen alle Lampen aus, wenn eine kaputt ist. Welche Schaltung ist das?',o:['Reihenschaltung','Parallelschaltung','Oder-Schaltung','Magnetschaltung'],t:'Alle Lampen hängen hintereinander.'},
+{q:'Die Haustür hat einen Klingelknopf vorne <b>oder</b> hinten. Welche Schaltung?',o:['Parallelschaltung','Reihenschaltung','Und-Schaltung','Keine'],t:'Vorne oder hinten reicht.'},
+{q:'Eine Maschine startet nur, wenn du <b>beide</b> Knöpfe drückst. Welche Schaltung?',o:['Reihenschaltung','Parallelschaltung','Oder-Schaltung','Keine'],t:'Beide Knöpfe heißt und.'},
+{q:'Wahr oder falsch? In der Reihenschaltung reicht ein geschlossener Schalter.',o:['Falsch: Beide müssen zu sein.','Wahr'],t:'Reihe heißt und.'}];
+const Q3=[
+{q:'Welches Formelzeichen hat die <b>Spannung</b>?',o:['U','I','R','P'],t:'U wie Volt-Druck.'},
+{q:'In welcher Einheit misst man den <b>Widerstand</b>?',o:['Ohm (Ω)','Volt (V)','Watt (W)','Ampere (A)'],t:''},
+{q:'Was ist wie der Druck einer Wasserpumpe?',o:['Die Spannung','Der Widerstand','Die Strecke','Die Energie'],t:'Die Spannung schiebt den Strom.'},
+{q:'Was ist wie eine enge Stelle im Rohr, die bremst?',o:['Der Widerstand','Der Strom','Die Spannung','Die Ladung'],t:''},
+{q:'Die Einheit vom <b>Strom</b> heißt …',o:['Ampere (A)','Joule (J)','Coulomb (C)','Meter (m)'],t:''},
+{q:'Wie viele Elektronen sind 1 Coulomb?',o:['6,25 Trillionen','6,25 Tausend','625','1 Million'],t:'Unvorstellbar viele!'},
+{q:'Welches Zeichen und welche Einheit gehören zur <b>Energie</b>?',o:['E und Joule (J)','P und Watt (W)','Q und Coulomb (C)','I und Ampere (A)'],t:''},
+{q:'Ein Föhn arbeitet sehr stark. Welche Größe ist hoch?',o:['Die Leistung (Watt)','Die Strecke (Meter)','Die Ladung (Coulomb)','Der Widerstand (Ohm)'],t:''},
+{q:'Welches Formelzeichen hat die <b>Ladung</b>?',o:['Q','L','C','E'],t:'C ist die Einheit, Q das Zeichen.'},
+{q:'1 Meter sind wie viele Zentimeter?',o:['100','10','1000','60'],t:'1 m = 100 cm.'},
+{q:'Wahr oder falsch? Ein Lichtjahr ist eine Zeit.',o:['Falsch: Es ist eine Strecke.','Wahr'],t:'So weit fliegt Licht in einem Jahr.'},
+{q:'Wie viel Spannung hat die Steckdose zu Hause?',o:['230 V','1,5 V','9 V','2 V'],t:'Gefährlich, nie anfassen!'},
+{q:'Du drehst die Pumpe stärker auf (mehr Spannung). Was passiert mit dem Strom?',o:['Er wird größer.','Er wird kleiner.','Er bleibt gleich.','Er verschwindet.'],t:'Mehr Druck, mehr Wasser.'},
+{q:'Das Rohr wird enger (mehr Widerstand). Was passiert mit dem Strom?',o:['Er wird kleiner.','Er wird größer.','Er bleibt gleich.','Er wird zu Licht.'],t:'Die enge Stelle bremst.'},
+{q:'Bonus: Spannung 6 V, Widerstand 3 Ω. Wie groß ist der Strom (I = U ÷ R)?',o:['2 A','18 A','3 A','9 A'],t:'6 ÷ 3 = 2.'}];
+const P=[['Strecke','s · Meter (m)'],['Ladung','Q · Coulomb (C)'],['Strom','I · Ampere (A)'],['Spannung','U · Volt (V)'],['Widerstand','R · Ohm (Ω)'],['Leistung','P · Watt (W)'],['Energie','E · Joule (J)']];
+function match(id,P,N){
+ const el=$('#'+id);let sel=null,n=0;
+ const B=(t,i,s)=>`<button class="mb" data-s="${s}" data-i="${i}">${t}</button>`;
+ el.innerHTML=`<div class="mt"><div>${P.map((p,i)=>B(p[0],i,'l')).join('')}</div><div>${sh(P.map((p,i)=>[p[1],i])).map(([t,i])=>B(t,i,'r')).join('')}</div></div><p class="fb" aria-live="polite">Tippe links eine Größe an, dann rechts das passende Zeichen.</p>`;
+ el.querySelectorAll('.mb').forEach(b=>b.onclick=()=>{
+  if(b.classList.contains('ok'))return;
+  if(!sel||sel.dataset.s===b.dataset.s){if(sel)sel.classList.remove('sel');sel=b;b.classList.add('sel');return}
+  if(sel.dataset.i===b.dataset.i){[sel,b].forEach(x=>{x.classList.remove('sel');x.classList.add('ok')});sel=null;star();el.querySelector('.fb').textContent=++n==N?'🎉 Alle '+N+' Paare gefunden!':'✅ Passt!'}
+  else{sel.classList.remove('sel');sel=null;b.classList.add('no');setTimeout(()=>b.classList.remove('no'),500);el.querySelector('.fb').textContent='Hmm, das passt nicht. Versuch es nochmal!'}
+ });
+}
+const P2=[['Strom','Wasser, das fließt'],['Spannung','Druck der Pumpe'],['Widerstand','enge Stelle im Rohr'],['Ladung','Eimer voller Wasser'],['Leistung','wie stark ein Gerät arbeitet'],['Energie','Kraft-Vorrat']];
+const DT={'🌬️ Föhn':'Strom ➜ Heizdraht wird heiß (🔥 Wärme) und ein Motor dreht den Ventilator (🧲 Bewegung). Zwei Wirkungen!','💡 Glühlampe':'Strom ➜ der dünne Draht glüht (💡 Licht). Dabei wird er sehr heiß (🔥 Wärme). Der größte Teil ist Wärme!','📱 Handy laden':'Strom ➜ wird im Akku gespeichert (🧪 Chemie). Das Ladegerät wird dabei etwas warm (🔥).','🔔 Türklingel':'Strom ➜ Elektromagnet zieht den Klöppel an (🧲 Bewegung) ➜ es klingelt.','🍞 Toaster':'Strom ➜ Heizdrähte glühen orange (🔥 Wärme und 💡 Licht) ➜ das Brot wird knusprig.','🔊 Lautsprecher':'Strom ➜ Elektromagnet ➜ die Membran wackelt (🧲 Bewegung) ➜ du hörst Musik.'};
+function det(){$('#dt').innerHTML=Object.keys(DT).map(k=>`<button style="flex:1 1 45%">${k}</button>`).join('');$('#dt').querySelectorAll('button').forEach(b=>b.onclick=()=>{$('#dr').textContent=DT[b.textContent]})}
+const D=[['Taschenlampe',0],['Glühlampe',0],['LED',0],['Toaster',1],['Wasserkocher',1],['Föhn',1],['Heizdecke',1],['Lautsprecher',2],['Mixer',2],['Türklingel',2],['Kopfhörer',2],['Akku laden',3],['Vergolden',3],['Elektrolyse',3]];
+function sortg(){
+ const el=$('#sg'),a=sh(D);let i=0,ok=0,bad=0;
+ (function show(){
+  if(i>=a.length){el.innerHTML=`<p class="fb">🎉 ${ok} von ${a.length} gleich beim ersten Versuch richtig!</p><button class="btn">Nochmal</button>`;el.querySelector('.btn').onclick=sortg;return}
+  el.innerHTML=`<small>Gerät ${i+1} von ${a.length}: Welche Wirkung?</small><div class="big" style="text-align:center;padding:8px 0">${a[i][0]}</div>${L.map((t,k)=>`<button class="opt" data-k="${k}">${t}</button>`).join('')}`;bad=0;
+  el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(+b.dataset.k===a[i][1]){if(!bad){ok++;star()}i++;show()}else{bad=1;b.classList.add('no');b.disabled=true}})
+ })()
+}
+let lt='r',bk=[0,0,0,0,0];
+function lamp(){
+ const r=lt=='r',any=bk.some(x=>x);
+ $('#lamps').innerHTML=bk.map((x,i)=>`<button data-i="${i}" aria-label="Lampe ${i+1}">${x?'💥':r&&any?'🌑':'💡'}</button>`).join('');
+ $('#lamps').querySelectorAll('button').forEach(b=>b.onclick=()=>{bk[b.dataset.i]=1-bk[b.dataset.i];lamp()});
+ $('#lr').classList.toggle('on',r);$('#lp').classList.toggle('on',!r);
+ $('#lm').textContent=!any?'Tippe auf eine Lampe, um sie kaputt zu machen (💥).':r?'In der Reihe ist der Weg unterbrochen: Alle Lampen gehen aus!':'Parallel hat jede Lampe ihren eigenen Weg: Die anderen leuchten weiter.';
+}
+$('#lr').onclick=()=>{lt='r';lamp()};$('#lp').onclick=()=>{lt='p';lamp()};
+function lab(){const U=+$('#us').value,R=+$('#rs').value,I=U/R;$('#uv').textContent=U;$('#rv').textContent=R;$('#ib').style.width=Math.max(3,Math.min(100,I/12*100))+'%';$('#il').textContent='Strom: '+I.toFixed(1).replace('.',',')+' A. '+(I>=4?'Viel Wasser fließt!':I>=1?'Es fließt ein normaler Strom.':'Nur ein Tröpfeln, die enge Stelle bremst.')}
+$('#us').oninput=$('#rs').oninput=lab;
+let nT=10;const t4=()=>quiz('q4',()=>sh(Q1.concat(Q2,Q3)).slice(0,nT));
+$('#t10').onclick=()=>{nT=10;t4()};$('#t20').onclick=()=>{nT=20;t4()};
+let mode='r',s1=0,s2=0;
+function sim(){
+ const r=mode=='r',on=r?s1&&s2:s1||s2,c=on?'#f08c00':'#8d93a3';
+ const sw=(a,b,y,cl)=>`<circle cx="${a}" cy="${y}" r="4" fill="${c}"/><circle cx="${b}" cy="${y}" r="4" fill="${c}"/><line x1="${a}" y1="${y}" x2="${b}" y2="${cl?y:y-22}" stroke="${cl?c:'#8d93a3'}" stroke-width="4" stroke-linecap="round"/>`;
+ const w=r?'M40 40H145M156 40H280V73M280 117V160H240M200 160H150M110 160H40V40':'M40 40H145M156 40H280V73M280 117V175M40 40V175M40 140H110M150 140H280M40 175H110M150 175H280';
+ const parts=r?sw(240,200,160,s1)+sw(150,110,160,s2)+'<text class="tt" x="212" y="188">S₁</text><text class="tt" x="122" y="188">S₂</text>'
+  :sw(110,150,140,s1)+sw(110,150,175,s2)+`<circle cx="40" cy="140" r="5" fill="${c}"/><circle cx="280" cy="140" r="5" fill="${c}"/><text class="tt" x="62" y="130">S₁</text><text class="tt" x="62" y="166">S₂</text>`;
+ $('#sv').innerHTML=(on?'<circle cx="280" cy="95" r="36" fill="#ffd23f" opacity=".35"/>':'')+`<path d="${w}" fill="none" stroke="${c}" stroke-width="4" stroke-linejoin="round"/><circle cx="280" cy="95" r="22" class="k" ${on?'style="fill:#ffe066"':''}/><path class="k" d="M265 80L295 110M295 80L265 110"/><line class="k" x1="145" y1="33" x2="145" y2="47" stroke-width="4"/><line class="k" x1="156" y1="26" x2="156" y2="54" stroke-width="4"/><text class="tt" x="124" y="30">−</text><text class="tt" x="166" y="30">+</text>`+parts;
+ document.querySelectorAll('#lt tr').forEach((t,k)=>t.classList.toggle('cur',k==1+s1*2+s2));$('#mr').classList.toggle('on',r);$('#mp').classList.toggle('on',!r);
+ $('#b1').textContent='Schalter 1: '+(s1?'zu ✅':'offen ⭕');$('#b2').textContent='Schalter 2: '+(s2?'zu ✅':'offen ⭕');
+ $('#sr').textContent=on?(r?'💡 Die Lampe leuchtet: Schalter 1 und Schalter 2 sind zu.':'💡 Die Lampe leuchtet: Mindestens ein Schalter ist zu. Oder reicht!'):(r?'🌑 Die Lampe bleibt aus: Mindestens ein Schalter ist offen, der Weg ist unterbrochen.':'🌑 Die Lampe bleibt aus: Beide Schalter sind offen.');
+}
+$('#mr').onclick=()=>{mode='r';sim()};$('#mp').onclick=()=>{mode='p';sim()};
+$('#b1').onclick=()=>{s1=1-s1;sim()};$('#b2').onclick=()=>{s2=1-s2;sim()};
+$('#mn').onclick=()=>match('m',P,7);$('#mn2').onclick=()=>match('m2',P2,6);
+const go=u=>{document.querySelectorAll('.unit').forEach(e=>e.hidden=e.id!=u);document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.u==u));scrollTo(0,0)};
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.u));
+quiz('q1',Q1);quiz('q2',Q2);quiz('q3',Q3);t4();
+match('m',P,7);match('m2',P2,6);sortg();det();lamp();lab();sim();go('u1');
+</script></body></html>
